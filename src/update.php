@@ -1,6 +1,9 @@
 <?php
 
-use source\Models\User;
+
+include_once "../vendor/autoload.php";
+
+use Source\Models\User;
 
 $response = [];
 
