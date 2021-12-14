@@ -2,7 +2,7 @@
 
 include_once "../vendor/autoload.php";
 
-use source\Models\User;
+use Source\Models\User;
 
 $response = [];
 
