@@ -1,6 +1,8 @@
 <?php
 
-use source\Models\User;
+include_once "../vendor/autoload.php";
+
+use Source\Models\User;
 
 $response = [];
 $user = null;
@@ -8,13 +10,16 @@ $user = null;
 if (isset($_GET["ID"])) {
     $user = (new User())->findById($_GET["ID"]);
 } else {
-    $user = (new User())->find()->fetch();
+    $user = (new User())->find()->fetch(true);
 }
-
-if ($user->fail()) {
+if (!$user) {
     $response["success"] = false;
     $response["message"] = "Não foi possivel listar";
 } else {
-    $response["data"] = $user;
+    $response["success"] = true;
+    foreach ($user as $users) {
+        $response["data"][] = $users->data();
+    }
+   
     echo json_encode($response);
 }

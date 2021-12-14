@@ -16,10 +16,10 @@
     },
     "autoload": {
       "psr-4": {
-        "Source\\": "source/"
+        "Source\\": "src/"
       },
       "files": [
-        "Source/Config.php"
+        "src/Config.php"
       ]
     },
     "require": {
